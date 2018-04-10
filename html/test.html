@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <el-card :ghy="ghy"></el-card>
+</div>
+<script>
+</script>
+<script src="../dist/vue.js"></script>
+<script src="../dist/main.js"></script>
+<script>
+    window.data = {ghy: "sss"}
+    new Vue({
+        el: '#app',
+        data: function () {
+            return {ghy: window.data}
+        }
+    })
+</script>
+</body>
+</html>
