@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="format-detection" content="email=no"/>
+    <meta name="format-detection" content="address=no;">
+
+</head>
+<style>
+    html, body {
+        height: 100%
+    }
+
+    .main {
+        display: flex;
+        height: 100%;
+    }
+
+    .app-wrap {
+        border-right: 1px solid #ccc;
+        /*border:1px solid #ccc;*/
+        /*background: linear-gradient( #ccc,#fff);*/
+        flex: auto;
+    }
+</style>
+<body>
+<div class="main">
+    <div class="app-wrap">
+        <ul id="weight-list">
+
+        </ul>
+    </div>
+    <div class="app-wrap" id="weight-wrap">
+
+    </div>
+    <div class="app-wrap">
+        <div id="app1"></div>
+        <button id="test1"> 显示组件</button>
+        <button id="test"> 点击测试</button>
+        <button id="test2"> 点击测试2</button>
+        <button id="show"> 显示数据</button>
+
+    </div>
+
+</div>
+<script src="http://crossorigin.kukuplay.com/cdns/zyuser/201704//static/js/jquery-1.9.2_9684773.js"></script>
+<script src="../dist/vue.js"></script>
+<script src="../dist/plug/plug.js"></script>
+<script src="../dist/app/app.js"></script>
+<script>
+    var conf_list = [{
+        _id: "fePic",// 组件名，唯一,
+        type: "node",// 组件类型，容器，布局，节点
+        name: "FeBanner",
+        gitUrl: "",
+        specific: [{
+            _id: "input_string",// 交互组件id,
+            name: "title",
+            default: "默认title"// 对应组件自身名字
+        },
+            {
+                _id: "input_string",// 交互组件id,
+                name: "imglink",
+                default: "默认图片地址"// 对应组件自身名字
+            }],
+        spacing: [{}],
+        styling: [{}],
+        snapshot: ""// 预览图
+    },
+        {
+            _id: "fePic2",// 组件名，唯一,
+            type: "node",// 组件类型，容器，布局，节点
+            name: "组件2",
+            gitUrl: "",
+            specific: [{_id: "input_number", name: "title", default: "2"}],
+        }, {
+            _id: "fePic3",// 组件名，唯一,
+            type: "node",// 组件类型，容器，布局，节点
+            name: "组件3",
+            gitUrl: "",
+            specific: [
+                {_id: "input_date", name: "title", default: ""},
+                {_id: "input_string", name: "title", default: "第三个组件"},
+            ],
+        }
+    ]
+</script>
+<script>
+
+    var myapp = {
+        init: function () {
+            this.layout();
+            this.initEvent();
+        },
+        layout: function () {
+            App.initApp("#app1");
+            // 创建组件
+            DropApp.create(conf_list);
+            // 数据中心注册组件
+            MyStore.regisStore(conf_list);
+            console.log(JSON.stringify(store.state.map));
+        },
+        initEvent: function () {
+            $("#test").on("click", function () {
+                store.state.coption = store.state.map.zujian1;
+            })
+            $("#test1").on("click", function () {
+                new Vue({
+                    el: '#app2',
+                    data: function () {
+                        return store.state.map.zujian1._data
+                    }
+                })
+            })
+            $("#test2").on("click", function () {
+                store.state.coption = store.state.map.zujian2;
+            })
+
+            $("#show").on("click", function () {
+                console.log(JSON.stringify(store.state.map))
+            })
+        }
+    }
+    myapp.init();
+</script>
+</body>
+</html>

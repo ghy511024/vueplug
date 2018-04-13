@@ -1,25 +1,27 @@
+<style lang="scss">
+    .el-card {
+        border: 1px solid #ccc;
+    }
+</style>
+
 <template>
-    <div class="el-card" :class="shadow ? 'is-' + shadow + '-shadow' : 'is-always-shadow'">
-        asdfasdfsdf{{ghy.ghy}}
-        <div class="el-card__header" v-if="$slots.header || header">
-            <slot name="header">{{ header }}</slot>
-        </div>
-        <div class="el-card__body" :style="bodyStyle">
-            <slot></slot>
-        </div>
+    <div class="el-card">
+        <h2>{{title}}</h2>
+        <img :src="imglink" alt="">
     </div>
 </template>
 
 <script>
     export default {
-        name: 'ElCard',
+        name: 'FeBanner',
         props: {
-            header: {},
-            bodyStyle: {},
-            ghy: Object,
-            shadow: {
-                type: String
-            }
+            imglink: {
+                type: String,
+                default: function () {
+                    return "";
+                }
+            },
+            title: String,
         }
     };
 </script>
