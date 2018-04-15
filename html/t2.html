@@ -9,7 +9,7 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="format-detection" content="email=no"/>
     <meta name="format-detection" content="address=no;">
-
+    <link rel="stylesheet" href="../dist/plug/plug.css">
 </head>
 <style>
     html, body {
@@ -25,7 +25,17 @@
         border-right: 1px solid #ccc;
         /*border:1px solid #ccc;*/
         /*background: linear-gradient( #ccc,#fff);*/
-        flex: auto;
+        flex: 1;
+    }
+
+    #weight-wrap {
+        width: 375px;
+        flex: none;
+    }
+
+    .main {
+        width: 1000px;
+        margin: 0px auto;
     }
 </style>
 <body>
@@ -40,13 +50,7 @@
     </div>
     <div class="app-wrap">
         <div id="app1"></div>
-        <button id="test1"> 显示组件</button>
-        <button id="test"> 点击测试</button>
-        <button id="test2"> 点击测试2</button>
-        <button id="show"> 显示数据</button>
-
     </div>
-
 </div>
 <script src="http://crossorigin.kukuplay.com/cdns/zyuser/201704//static/js/jquery-1.9.2_9684773.js"></script>
 <script src="../dist/vue.js"></script>
@@ -62,12 +66,12 @@
             _id: "input_string",// 交互组件id,
             name: "title",
             default: "默认title"// 对应组件自身名字
-        },
-            {
-                _id: "input_string",// 交互组件id,
-                name: "imglink",
-                default: "默认图片地址"// 对应组件自身名字
-            }],
+        }, {
+            _id: "input_string",// 交互组件id,
+            name: "imglink",
+//            default: "http://www.getuikit.net/docs/images/placeholder_600x400.svg"// 对应组件自身名字
+            default: ""// 对应组件自身名字
+        }],
         spacing: [{}],
         styling: [{}],
         snapshot: ""// 预览图

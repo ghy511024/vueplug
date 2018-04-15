@@ -1,7 +1,7 @@
 /**
  * Created by cyl on 2018/4/10.
  */
-import  Card from "./package/card/index";
+import  Card from "./package/FeBanner/index";
 const components = [
     Card
 ];

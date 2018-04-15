@@ -1,6 +1,8 @@
 /**
  * Created by ghy on 2018/4/13.
  */
+
+var _ = require('lodash');
 var DropApp = {
     init: function () {
         this.initEvent();
@@ -10,13 +12,9 @@ var DropApp = {
         $("#weight-list").on("click", "li", function () {
             var _id = $(this).attr("_id");
             _this.addWeight(_id);
-            // 渲染交互组件面板
         })
         $("#weight-wrap").on("click", ".item-inner", function () {
             var id = $(this).attr("id");
-            console.log(id);
-            console.log(JSON.stringify(store.state.map),"||||||||||||",JSON.stringify(store.state.source_data))
-            console.log(store.state.map[id])
             store.state.coption = store.state.map[id];
         })
     },
@@ -30,7 +28,7 @@ var DropApp = {
         this.registStore(_id, dom_data["idstr"])
 
         new Vue({
-            el: "#"+dom_data["idstr"],
+            el: "#" + dom_data["idstr"],
             data: function () {
                 return store.state.map[dom_data["idstr"]]._data
             }
@@ -49,17 +47,12 @@ var DropApp = {
             $("#weight-list").append(dom);
         }
     },
-    _deepClone:function(){
-
-    },
     /**
      * @param _id 组件的id
      * @param weight_id 临时分配的组件id
      * */
     registStore(_id, weight_id){
-        // var tmpobj={};
-        var tmpObj=_extend({},store.state.source_data[_id])
-        // var tmpObj = Object.assign({}, store.state.source_data[_id]);
+        var tmpObj = _.cloneDeep(store.state.source_data[_id])
         store.state.map[weight_id] = tmpObj;
     },
     createDom: function (item) {
@@ -104,22 +97,5 @@ var DropApp = {
 
 }
 
-function _extend(child, parent){
-    var i, toStr = Object.prototype.toString, astr = "[object Array]";
-    child = child || {};
-    for (i in parent) {
-        if (parent.hasOwnProperty(i)) {
-            if (typeof parent[i] === "object") {
-                if (child[i] == null) {
-                    child[i] = (toStr.call(parent[i]) === astr) ? [] : {};
-                }
-                _extend(child[i], parent[i]);
-            } else {
-                child[i] = parent[i];
-            }
-        }
-    }
-    return child;
-}
 DropApp.init();
 window.DropApp = DropApp;

@@ -81,6 +81,23 @@
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     name: 'FeBanner',
@@ -88,7 +105,7 @@
         imglink: {
             type: String,
             default: function _default() {
-                return "";
+                return "http://www.getuikit.net/docs/images/placeholder_600x400.svg";
             }
         },
         title: String
@@ -101,12 +118,12 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__package_card_index__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__package_FeBanner_index__ = __webpack_require__(2);
 /**
  * Created by cyl on 2018/4/10.
  */
 
-var components = [__WEBPACK_IMPORTED_MODULE_0__package_card_index__["a" /* default */]];
+var components = [__WEBPACK_IMPORTED_MODULE_0__package_FeBanner_index__["a" /* default */]];
 var install = function install(Vue) {
     var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
@@ -142,7 +159,7 @@ __WEBPACK_IMPORTED_MODULE_0__src_main_vue__["a" /* default */].install = functio
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_1_vue_loader_lib_selector_type_script_index_0_main_vue__ = __webpack_require__(0);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_13_7_1_vue_loader_lib_template_compiler_index_id_data_v_d4c66c5e_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_1_vue_loader_lib_selector_type_template_index_0_main_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_13_7_1_vue_loader_lib_template_compiler_index_id_data_v_50f8dc54_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_1_vue_loader_lib_selector_type_template_index_0_main_vue__ = __webpack_require__(6);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -164,13 +181,13 @@ var __vue_scopeId__ = null
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
   __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_13_7_1_vue_loader_lib_selector_type_script_index_0_main_vue__["a" /* default */],
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_13_7_1_vue_loader_lib_template_compiler_index_id_data_v_d4c66c5e_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_1_vue_loader_lib_selector_type_template_index_0_main_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_13_7_1_vue_loader_lib_template_compiler_index_id_data_v_50f8dc54_hasScoped_false_buble_transforms_node_modules_vue_loader_13_7_1_vue_loader_lib_selector_type_template_index_0_main_vue__["a" /* default */],
   __vue_template_functional__,
   __vue_styles__,
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "src\\package\\card\\src\\main.vue"
+Component.options.__file = "src\\package\\FeBanner\\src\\main.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -179,9 +196,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-d4c66c5e", Component.options)
+    hotAPI.createRecord("data-v-50f8dc54", Component.options)
   } else {
-    hotAPI.reload("data-v-d4c66c5e", Component.options)
+    hotAPI.reload("data-v-50f8dc54", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -315,11 +332,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "el-card" }, [
-    _c("h2", [_vm._v(_vm._s(_vm.title))]),
-    _vm._v(" "),
-    _c("img", { attrs: { src: _vm.imglink, alt: "" } })
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "el-card",
+      class: { defback: _vm.imglink == "" || _vm.imglink == null }
+    },
+    [
+      _c("h2", [_vm._v(_vm._s(_vm.title))]),
+      _vm._v(" "),
+      _c("img", { attrs: { src: _vm.imglink, alt: "" } })
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -328,7 +352,7 @@ var esExports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-d4c66c5e", esExports)
+    require("vue-loader/node_modules/vue-hot-reload-api")      .rerender("data-v-50f8dc54", esExports)
   }
 }
 

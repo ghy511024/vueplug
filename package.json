@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "element-ui": "^2.3.3",
+    "loadash": "^1.0.0",
     "vuex": "^3.0.1"
   },
   "optionalDependencies": {
