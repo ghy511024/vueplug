@@ -1,9 +1,11 @@
 /**
  * Created by cyl on 2018/4/10.
  */
-import  Card from "./package/FeBanner/index";
+import  FeBanner from "./package/FeBanner/index";
+import  CardA from "./package/CardA/index";
 const components = [
-    Card
+    FeBanner,
+    CardA
 ];
 const install = function (Vue, opts = {}) {
     components.map(component => {

@@ -58,7 +58,7 @@
 <script src="../dist/app/app.js"></script>
 <script>
     var conf_list = [{
-        _id: "fePic",// 组件名，唯一,
+        _id: "FeBanner",// 组件名，唯一,
         type: "node",// 组件类型，容器，布局，节点
         name: "FeBanner",
         gitUrl: "",
@@ -77,11 +77,13 @@
         snapshot: ""// 预览图
     },
         {
-            _id: "fePic2",// 组件名，唯一,
+            _id: "CardA",// 组件名，唯一,
             type: "node",// 组件类型，容器，布局，节点
-            name: "组件2",
+            name: "CardA",
             gitUrl: "",
-            specific: [{_id: "input_number", name: "title", default: "2"}],
+            specific: [{_id: "input_string", name: "card_img_left"},
+                {_id: "input_string", name: "card_img_right_top"},
+                {_id: "input_string", name: "card_img_right_bototm"}],
         }, {
             _id: "fePic3",// 组件名，唯一,
             type: "node",// 组件类型，容器，布局，节点
